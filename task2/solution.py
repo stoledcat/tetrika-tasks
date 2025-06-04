@@ -51,7 +51,6 @@ def write_letter_counter(sorted_dict):
         writer = csv.writer(file)
         for key, value in sorted_dict.items():
             writer.writerow([key, value])
-    file.close()
 
 
 if __name__ == "__main__":
