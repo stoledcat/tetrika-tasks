@@ -14,9 +14,6 @@ def main():
     rus_letters = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
     letter_counter = defaultdict(int)
 
-    # Объявить глобальные счетчик для проведения тестов
-    # total_counter = 0
-
     for member in page_wiki.categorymembers.values():
         title = member.title.strip()
         # При сборе данных из раздела попадались эти две нижеуказанные строки
@@ -25,7 +22,6 @@ def main():
             title != "Категория:Знаменитые животные по алфавиту"
             and title != "Категория:Породы по алфавиту"
         ):
-            # total_counter += 1
             first_letter = title[0].upper()
             if first_letter in rus_letters:
                 letter_counter[first_letter] += 1
