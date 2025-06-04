@@ -44,7 +44,7 @@ def sort_letter(letter_counter):
 
 def write_letter_counter(sorted_dict):
     """
-    Функция записывает результат в файл beast.csv
+    Функция записывает результат в файл beasts.csv
     """
 
     with open("beasts.csv", "w", newline="", encoding="UTF-8") as file:
