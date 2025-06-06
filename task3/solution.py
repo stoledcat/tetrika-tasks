@@ -16,6 +16,37 @@ def appearance(intervals: dict[str, list[int]]) -> int:
     pupil_intervals = cut_interval(intervals["pupil"])
     tutor_intervals = cut_interval(intervals["tutor"])
 
+    pupil_merged = merge_intervals(pupil_intervals)
+    tutor_merged = merge_intervals(tutor_intervals)
+
+
+def merge_intervals(intervals):
+    """
+    Функция объединяет и сортирует пересекающиеся интервалы
+    """
+    merged = []
+    for start, end in sorted(zip(intervals[0::2], intervals[1::2])):
+        if not merged or merged[-1][1] < start:
+            merged.append([start, end])
+        else:
+            merged[-1][1] = max(merged[-1][1], end)
+    return merged
+
+
+def cross_intervals(pupil_int, tutor_int):
+    a, b = 0, 0
+    result = []
+    while a < len(pupil_int) and b < len(tutor_int):
+        start = max(pupil_int[a][0], tutor_int[b][0])
+        end = min(pupil_int[a][1], tutor_int[b][1])
+        if start < end:
+            result.append([start, end])
+        if pupil_int[a][1] < tutor_int[b][1]:
+            a += 1
+        else:
+            b += 1
+    return result
+
 
 tests = [
     {
