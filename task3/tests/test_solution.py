@@ -17,3 +17,11 @@ def test_check_intervals():
             assert len(test[j]) % 2 == 0
             if len(test[j]) % 2 != 0:
                 raise ValueError("Некорректное количество интервалов")
+
+
+def test_check_values():
+    for i, test in enumerate(tests):
+        test = test["intervals"]
+        for j in test:
+            if not test[j]:
+                raise ValueError("Отсутствуют интервалы")

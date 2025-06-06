@@ -47,6 +47,9 @@ def merge_intervals(intervals):
 
 
 def cross_intervals(pupil_int, tutor_int):
+    """
+    Функция находит пересечение двух списков интервалов
+    """
     a, b = 0, 0
     result = []
     while a < len(pupil_int) and b < len(tutor_int):
